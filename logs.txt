@@ -1,0 +1,29 @@
+daud@Daud:~/semester_project/SupplyChain$ truffle migrate
+Compiling ./contracts/Migrations.sol...
+Compiling ./contracts/SupplyChain.sol...
+Writing artifacts to ./build/contracts
+
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0xe36dd27b032e9af5d717eabbe5fa4c93b62fd36bd744018330d3c3efcbdb49f5
+  Migrations: 0x2b8430ed36a1bf1cfae788d4e44e0f6a2cfcfedc
+Saving artifacts...
+Running migration: 2_supplyChain_migration.js
+  Deploying SupplyChain...
+  ... 0xcc75e4d45a9b639da09393eb318ef14bff5f5c40858c0f985ad92df99f654dc6
+  SupplyChain: 0x425c826e647568fee33fc7ab551c80a47957c0e6
+Saving artifacts...
+daud@Daud:~/semester_project/SupplyChain$ ^C
+daud@Daud:~/semester_project/SupplyChain$ 
+
+var sc;
+SupplyChain.at("0x926b74c37a6ebdf1521f5ed5c8ebac20a95b918c").then( function(x) { sc = x });
+sc.addItem("apples", 20);
+sc.queryItem(0);
+sc.addItem("mango", 80);
+sc.buyItem(1);
+sc.shipItem(1, "Amare pura");
+sc.queryItem(1);
+sc.receiveItem(1);
